@@ -12,12 +12,31 @@
       <input type="number" name="salario" placeholder="Salario" [(ngModel)]="cuadroSalario">
     </div>
     <div>
-      <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()">Agregar empleado</button>
+      <button type="submit" class="btn btn-warning" (click)="agregarEmpleado()">Agregar empleado</button>
     </div>
   </form>
 </div>
 
-<div *ngFor="let empleado of empleados; let i = index">
-  {{i+1}}{{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cargo</th>
+      <th>Sueldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empleado of empleados | paginate:config; let i= index">
+      <td>{{i}}</td>
+      <td>{{empleado.nombre}}</td>
+      <td>{{empleado.apellido}}</td>
+      <td>{{empleado.cargo}}</td>
+      <td>{{empleado.salario}}</td>
+    </tr>
+  </tbody>
+</table>
 
-</div>
+<pagination-controls previousLabel="atras" nextLabel="Siguiente" class="paginacion" (pageChange)="pageChange($event)">
+</pagination-controls>
