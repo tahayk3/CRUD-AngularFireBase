@@ -1,5 +1,23 @@
 <h1 class="titulo">{{titulo}}</h1>
+<div class="container">
+  <form action="">
+    <div>
+      <label for="nombre">Nombre: </label>
+      <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="cuadroNombre">
+      <label for="apelldio">Apellido: </label>
+      <input type="text" name="apellido" placeholder="Apellido" [(ngModel)]="cuadroApellido">
+      <label for="cargo">Cargo: </label>
+      <input type="text" name="cargo" placeholder="Cargo" [(ngModel)]="cuadroCargo">
+      <label for="Salario">Salario: </label>
+      <input type="number" name="salario" placeholder="Salario" [(ngModel)]="cuadroSalario">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()">Agregar empleado</button>
+    </div>
+  </form>
+</div>
 
-<div *ngFor="let empleado of empleados">
-  <p>{{empleado}}</p>
+<div *ngFor="let empleado of empleados; let i = index">
+  {{i+1}}{{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
+
 </div>
