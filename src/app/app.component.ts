@@ -6,13 +6,12 @@ import { Empleado } from './empleado.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent {
   titulo = 'Listado de empleados';
   cuadroNombre:string = "";
   cuadroApellido:string = "";
   cuadroCargo:string = "";
   cuadroSalario:number = 0;
-  config:any;
 
   empleados: Empleado[] =[
     new Empleado("Juan", "Diaz", "Presidente", 7500),
@@ -27,21 +26,9 @@ export class AppComponent implements OnInit  {
     new Empleado("Valeria", "Fernandes", "Presidente", 8500)
   ];
 
-  ngOnInit(): void {
-
-    this.config = {
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: 0
-    };
-  }
-  
-  pageChange(event: any){
-    this.config.currentPage = event;
-  }
-
   agregarEmpleado(){
     let newEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     this.empleados.push(newEmpleado);
   }
+  
 }

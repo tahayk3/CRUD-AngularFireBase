@@ -1,0 +1,24 @@
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cargo</th>
+      <th>Sueldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empleado of empleadoLista | paginate:config; let i= index">
+      <td>{{i}}</td>
+      <td>{{empleado.nombre}}</td>
+      <td>{{empleado.apellido}}</td>
+      <td>{{empleado.cargo}}</td>
+      <td>{{empleado.salario}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls previousLabel="atras" nextLabel="Siguiente" class="paginacion" (pageChange)="pageChange($event)">
+</pagination-controls>
+
