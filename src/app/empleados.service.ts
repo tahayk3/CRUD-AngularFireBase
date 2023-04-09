@@ -10,6 +10,15 @@ export class EmpleadosService{
   constructor(private servicioVentanEmergente: ServicioEmpleadosService, private dataServices: DataServices){
 
   }
+    setEmpleados(misEmpleados: Empleado[]){
+        this.empleados = misEmpleados;
+    }
+
+    obtenerEmpleados(){
+      return this.dataServices.cargarEmpleados();
+    }
+    empleados: Empleado[] = [];
+    /*
     empleados: Empleado[] =[
         new Empleado(0,"Juan", "Diaz", "Presidente", 7500),
         new Empleado(1, "Maria", "Martin", "Presidente", 9500),
@@ -23,6 +32,7 @@ export class EmpleadosService{
         new Empleado(9, "Valeria", "Fernandes", "Presidente", 8500),
         new Empleado(10, "Vale", "Villagran", "Presidente", 8500)
       ];
+      */
 
       agregarEmpleadoServicio(empleado:Empleado){
         this.servicioVentanEmergente.muestraMensaje(
@@ -42,8 +52,12 @@ export class EmpleadosService{
         empleadoModificado.apellido = empleado.apellido;
         empleadoModificado.cargo = empleado.cargo;
         empleadoModificado.salario = empleado.salario;
+        this.dataServices.actualizarEmpleados(indice,empleado);
       }
       eliminarEmpleadoServicio(indice:number){
         this.empleados.splice(indice,1);
+        this.dataServices.eliminarEmpleados(indice);
+        if(this.empleados!=null)
+          this.dataServices.guardarEmpleados(this.empleados);
       }
 }

@@ -17,7 +17,12 @@ export class HomeComponentComponent implements OnInit {
   cuadroSalario:number = 0;
   constructor(private empleadoService:EmpleadosService){}
   ngOnInit(): void {
-    this.empleados = this.empleadoService.empleados;
+    //this.empleados = this.empleadoService.empleados;
+    this.empleadoService.obtenerEmpleados().subscribe(misEmpleados =>{
+      console.log(misEmpleados);
+      this.empleados = Object.values(misEmpleados);
+      this.empleadoService.setEmpleados(this.empleados);
+    });
   }
   agregarEmpleado(){
     let newEmpleado = new Empleado(this.cuadroId,this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);

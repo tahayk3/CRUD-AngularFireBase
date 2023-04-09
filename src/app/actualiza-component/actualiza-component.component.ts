@@ -56,6 +56,7 @@ export class ActualizaComponentComponent {
     {
       this.empleadoService.eliminarEmpleadoServicio(this.indice);
       this.router.navigate(['']);
+
     }
   }
 
