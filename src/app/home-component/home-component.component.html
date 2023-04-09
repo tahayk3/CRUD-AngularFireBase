@@ -1,0 +1,41 @@
+<h1 class="titulo">{{titulo}}</h1>
+<form action="">
+
+  <div class="form-group">
+    <label for="salario" class="col-sm-1 col-form-label">Id</label>
+    <div class="col-sm-1">
+      <input type="text" name="id" class="form-control" [(ngModel)]="cuadroId">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="nombre" class="col-sm-1 col-form-label">Nombre</label>
+    <div class="col-sm-5">
+      <input type="text" name="nombre" class="form-control" [(ngModel)]="cuadroNombre">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="apellido" class="col-sm-1 col-form-label">Apellido</label>
+    <div class="col-sm-5">
+      <input type="text" name="apellido" class="form-control" [(ngModel)]="cuadroApellido">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cargo" class="col-sm-1 col-form-label">Cargo</label>
+    <div class="col-sm-5">
+      <input type="text" name="cargo" class="form-control" [(ngModel)]="cuadroCargo">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="salario" class="col-sm-1 col-form-label">Salario</label>
+    <div class="col-sm-1">
+      <input type="text" name="salario" class="form-control" [(ngModel)]="cuadroSalario">
+    </div>
+  </div>
+
+  <button type="submit" class="button type3" (click)="agregarEmpleado()">Agregar empleado</button>
+</form>
+
+<app-empleado-hijo-c [empleadoLista]="empleados"></app-empleado-hijo-c>
